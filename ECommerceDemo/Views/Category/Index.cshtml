@@ -1,0 +1,22 @@
+﻿@using ECommerceDemo.Models
+@model MainModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Kategori Adı</th>
+        <th>Açıklama</th>
+        <th>Sil</th>
+    </tr>
+    @foreach(var item in Model.CategoryList)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.CategoryName</td>
+            <td>@item.Description</td>
+        </tr>
+    }
+</table>

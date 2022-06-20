@@ -1,0 +1,60 @@
+﻿@model MainModel
+@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+<body>
+	<!--//banner-->
+	<section class="banner-bottom">
+		<!--/blog-->
+		<div class="container">
+			<div class="row">
+				<!--left-->
+				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+				
+					<div class="blog-grid-top">
+						<div class="b-grid-top">
+							<div class="blog_info_left_grid">
+								<a href="single.html">
+									<img src="@Model.SelectedProduct.ImageUrl" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="blog-info-middle">
+								<ul>
+									
+									<li class="mx-2">
+										<a href="#">
+											<i class="far fa-thumbs-up"></i> 201 Beğeni</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="far fa-comment"></i> 15 Yorum</a>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+
+						<h3>
+							<a>@Model.SelectedProduct.ProductName </a>
+						</h3>
+						<p>@Model.SelectedProduct.Description</p>
+						<p>@Model.SelectedProduct.Price TL</p>
+						
+						<a href="/Product/AddBasket/@Model.SelectedProduct.Id" class="btn btn-primary">Sepete Ekle</a>
+					</div>
+					
+
+				<!--//left-->
+				
+			</div>
+		</div>
+	</section>
+	
+</body>
+
+</html>
+

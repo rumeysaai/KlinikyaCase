@@ -1,0 +1,54 @@
+﻿@using ECommerceDemo.Models
+@model MainModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h4 class="tittle">Sepetinizdeki Ürünler</h4>
+        <div class="inner-sec">
+            <!--left-->
+            <form method="post">
+                <div class="left-blog-info-w3layouts-agileits text-left">
+                    <div class="row">
+
+                        @if (Model.IsLoggedIn)
+                        {
+                            @if (Model.Basket == null)
+                            {
+                                <h3>Sepetiniz Boş</h3>
+                            }
+                            else
+                            {
+
+                                @foreach (var item in Model.Basket)
+                                {
+                                    <div class="col-lg-4 card">
+                                        <a href="single.html">
+                                            <img src="@item.ImageUrl" style="width:150px; height:150px;" class="card-img-top img-fluid" alt="">
+                                        </a>
+                                        <div class="card-body">
+                                            <a href="/Product/ProductReadAll/@item.Id">@item.BrandName</a>
+                                            <a href="/Product/ProductReadAll/@item.Id">@item.ProductName</a>
+                                            <p>@item.Price TL</p><br>
+                                        </div><br>
+                                    </div>
+                                }
+
+                                <button type="submit" style="position:sticky;" class="btn btn-primary submit mb-4">Sipariş Oluştur</button>
+                            }
+
+                        }
+                        else
+                        {
+                            <a href="/Login/Index/">Önce Giriş Yapınız</a>
+                        }
+
+                    </div>
+            </form>
+            <!--//left-->
+        </div>
+    </div>
+    </div>
+</section>
